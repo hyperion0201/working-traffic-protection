@@ -1,30 +1,16 @@
-#include <stdio.h>
-
-#include <opencv/cv.h> // Include the OpenCV library
-#include <opencv/highgui.h> // Include interfaces for video capturing
+#include "ImageManagement.h"
+#include "CardManagement.h"
+#include "Miscellaneous.h"
 
 void main(int argc, char* argv)
 {
-	cvNamedWindow("Window", CV_WINDOW_AUTOSIZE);
-	CvCapture* capture = cvCreateCameraCapture(-1);
-	if (!capture) {
-		printf("Error. Cannot capture.");
-	}
-	else {
-		cvNamedWindow("Window", CV_WINDOW_AUTOSIZE);
-
-		while (1) {
-			IplImage* frame = cvQueryFrame(capture);
-			if (!frame) {
-				printf("Error. Cannot get the frame.");
-				break;
-			}
-			cvShowImage("Window", frame);
-			cvWaitKey(30);
-		}
-		
-		cvReleaseCapture(&capture);
-		cvDestroyWindow("Window");
-		
-	}
+	int n = 0;
+	ParkingCard* list = InitList(n);
+	int i = AddingTraffic(&list, n, "concac");
+	puts(list[n-1].ID);
+	printf("%d\n", n);
+	int location = FindingLocation(list, n, "concac");
+	printf("%d\n",location);
+	_getch();
+	free(list);
 }

@@ -24,6 +24,9 @@
     <ClCompile Include="Miscellaneous.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CardManagement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageManagement.h">

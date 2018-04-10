@@ -9,4 +9,5 @@
 #include <opencv/highgui.h>
 void ImageCapturing(); // function capturing image when have information
 bool ImageExist(const char* imagefile);
+void AddingImage();
 #endif // !IMAGEMANAGEMENT
