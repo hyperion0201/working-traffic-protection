@@ -1,16 +1,8 @@
-#include "ImageManagement.h"
 #include "CardManagement.h"
-#include "Miscellaneous.h"
-
-void main(int argc, char* argv)
+#include "ImageManagement.h"
+using namespace cv;
+void main()
 {
-	int n = 0;
-	ParkingCard* list = InitList(n);
-	int i = AddingTraffic(&list, n, "concac");
-	puts(list[n-1].ID);
-	printf("%d\n", n);
-	int location = FindingLocation(list, n, "concac");
-	printf("%d\n",location);
+	ImageCapturing();
 	_getch();
-	free(list);
 }
