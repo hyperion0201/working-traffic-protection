@@ -3,6 +3,6 @@
 using namespace cv;
 void main()
 {
-	ImageCapturing();
+	ImageShowing("test");
 	_getch();
 }

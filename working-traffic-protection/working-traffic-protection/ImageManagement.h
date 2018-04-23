@@ -11,8 +11,11 @@ For more informations, please go to https://github.com/maelvalais/homebrew-amc/i
 #include <Windows.h>
 #include <opencv2\core.hpp>
 #include <opencv2\highgui.hpp>
+#include <string.h>
 using namespace cv;
-void ImageCapturing(); // function capturing image when have information
+void ImageCapturing(const char* id); // function capturing image when have information
 bool ImageExist(const char* imagefile);
-void RemovingImage(const char* imagefile);
+int ImageRemoving(char* imageid);
+void ImageShowing(const char* id);
+bool DirectoryExists(const char* dirName);
 #endif // !IMAGEMANAGEMENT

@@ -7,8 +7,22 @@ bool ImageExist(const char* imagename) {
 	}
 	return false;
 }
-void ImageCapturing() {
-	
+void ImageCapturing(const char* id) {
+	// check if folder exist
+
+	if (DirectoryExists("C:\\TrafficImages\\") == false)
+	{
+		CreateDirectory("C:\\TrafficImages\\", NULL);
+	}
+
+	// full path is required for saving image using imwrite
+	const char* extension = ".jpg";
+	char* path = (char*)malloc(strlen(id) + strlen(extension) + strlen("C:\\TrafficImages\\"+ 1));
+	// copy and merge id and extension into path
+	strcpy(path, "C:\\TrafficImages\\");
+	strcat(path, id);
+	strcat(path, extension);
+
 	Mat frame;
 	// Initialize videocapture;
 	VideoCapture capture;
@@ -32,6 +46,49 @@ void ImageCapturing() {
 	// show live and wait for a key to show image
 	imshow("Image", frame);
 	waitKey(30);
-	imwrite("image.jpg", frame);
+	imwrite(path, frame);
+	waitKey(30);
 	// release all frame
+}
+int ImageRemoving(char* imageid)
+{	
+	char* filename = (char*)malloc(strlen(imageid) + strlen(".jpg")); 
+	// allocation new file name to concentrate imageid + .jpg
+	// copy imageid to filename
+	strcpy(filename, imageid);
+	// cat extension to filename
+	strcat(filename, ".jpg");
+	int rmstatus;
+	rmstatus = remove(filename);
+	return rmstatus;
+}
+void ImageShowing(const char* id)
+{
+	char* path = (char*)malloc(strlen("C:\\TrafficImages\\") + strlen(id) + strlen(".jpg") + 1);
+	strcpy(path, "C:\\TrafficImages\\");
+	strcat(path, id);
+	strcat(path, ".jpg");
+	// create Mat class for fetching image 
+	/*>0 Return a 3 - channel color image. (same as CV_LOAD_IMAGE_COLOR)
+
+	= 0 Return a grayscale image. (same as CV_LOAD_IMAGE_GRAYSCALE)
+
+	<0 Return the loaded image as is(with alpha channel). (same as CV_LOAD_IMAGE_ANYDEPTH)
+	*/
+	Mat i = imread(path, 1);
+	if (i.empty())
+	{
+		printf("Image not found!");
+		return;
+	}
+	namedWindow("Image", CV_WINDOW_AUTOSIZE);
+	imshow("Image", i);
+	waitKey(50);
+}
+bool DirectoryExists(const char* dirName) {
+	DWORD attribs = ::GetFileAttributesA(dirName);
+	if (attribs == INVALID_FILE_ATTRIBUTES) {
+		return false;
+	}
+	return (attribs & FILE_ATTRIBUTE_DIRECTORY);
 }
