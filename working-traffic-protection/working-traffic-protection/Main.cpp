@@ -4,7 +4,7 @@
 using namespace cv;
 void main()
 {
-	int n= 1;
+	int n= 0;
 	ParkingCard* parkingList= InitList(n);
 	// checking data
 	int data = Init();

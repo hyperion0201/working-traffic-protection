@@ -45,17 +45,16 @@ void ImageCapturing(const char* id) {
 	Sleep(5);
 	imwrite(path, frame);
 	waitKey(30);
-	printf("Them xe thanh cong ! Co muon xem hinh ?");
-	printf("\n\t Neu co, nhan y de xem. Sau khi xem, nhan Esc de tat khung hinh.\n");
+	printf("Them xe thanh cong !Dang hien hinh anh.");
+	printf("\n\t Sau khi xem, nhan Esc de tat khung hinh.\n");
 	while (true)
 	{
-
+		imshow("Image", frame);
+		waitKey(30);
+		
+		if ((cvWaitKey(50) & 255) == 27) break;
 	}
 	// show live and wait for a key to show image
-	imshow("Image", frame);
-	waitKey(30);
-	
-	
 	cvDestroyAllWindows();
 	// release all frame
 }

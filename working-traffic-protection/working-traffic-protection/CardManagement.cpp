@@ -44,6 +44,7 @@ ParkingCard* InitList(int n) {
 	 {
 		 puts(parkingList[i].ID);
 	 }
+	 _getch();
  }
  void SavingData(FILE* cardfile, ParkingCard* parkingList, int n)
  {
