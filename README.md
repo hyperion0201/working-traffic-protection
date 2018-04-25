@@ -9,9 +9,7 @@
 
 <h4 align="center">A minimal desktop-console app built for one of <a href="http://www.fit.hcmus.edu.vn" target="_blank">HCMUS Projects</a>.</h4>
 
-<p align="center">
-  <a href="">
-    
+<p align="center">  
   <a href=""><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
   <a href="">
       <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
