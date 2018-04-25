@@ -10,7 +10,7 @@ struct ParkingCard
 	char ID[maxID];
 };
 ParkingCard* InitList(int n);
-int AddingTraffic(ParkingCard* *parkingList, int &n, const char* id);
+int AddingTraffic(ParkingCard* *parkingList, int &n, char id[]);
 int RemovingTraffic(ParkingCard* *parkingList, int &n, int location);
 int FindingLocation(ParkingCard* parkingList, int n, const char* id);
 void ExportingList(ParkingCard* parkingList, int n);

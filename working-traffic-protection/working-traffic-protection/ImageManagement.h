@@ -14,7 +14,7 @@ For more informations, please go to https://github.com/maelvalais/homebrew-amc/i
 #include <string.h>
 using namespace cv;
 void ImageCapturing(const char* id); // function capturing image when have information
-bool ImageExist(const char* imagefile);
+bool fileExist(const char* imagefile);
 int ImageRemoving(char* imageid);
 void ImageShowing(const char* id);
 bool DirectoryExists(const char* dirName);
