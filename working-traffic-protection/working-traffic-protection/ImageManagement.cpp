@@ -1,5 +1,5 @@
 #include "ImageManagement.h"
-bool ImageExist(const char* imagename) {
+bool fileExist(const char* imagename) {
 	FILE* imageload;
 	if (imageload = fopen(imagename, "r")) {
 		fclose(imageload);
@@ -43,11 +43,20 @@ void ImageCapturing(const char* id) {
 	capture.read(frame);
 	if (frame.empty()) printf("Error. Blank frame captured.");
 	Sleep(5);
+	imwrite(path, frame);
+	waitKey(30);
+	printf("Them xe thanh cong ! Co muon xem hinh ?");
+	printf("\n\t Neu co, nhan y de xem. Sau khi xem, nhan Esc de tat khung hinh.\n");
+	while (true)
+	{
+
+	}
 	// show live and wait for a key to show image
 	imshow("Image", frame);
 	waitKey(30);
-	imwrite(path, frame);
-	waitKey(30);
+	
+	
+	cvDestroyAllWindows();
 	// release all frame
 }
 int ImageRemoving(char* imageid)
