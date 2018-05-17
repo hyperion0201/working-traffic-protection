@@ -4,8 +4,8 @@
 using namespace cv;
 void main()
 {
-	int n= 0;
-	ParkingCard* parkingList= InitList(n);
+	int n = 0;
+	ParkingCard* parkingList = InitList(n);
 	// checking data
 	int data = Init();
 	if (data == 1)
@@ -15,8 +15,8 @@ void main()
 	}
 	else
 	{
-		printf("\n\tChua tim thay du lieu !");
-		Delay(3);
+		printf("\n\tPhat hien lan dau su dung!");
+		Delay(2);
 	}
 	while (true)
 	{
@@ -35,8 +35,35 @@ void main()
 			printf("\n\t -> Nhap ma xe : ");
 			getchar();
 			gets_s(id);
-		int re=	AddingTraffic(&parkingList, n, id);
-			ImageCapturing(id);
+			int addflag = AddingTraffic(&parkingList, n, id);
+			if (addflag == 0)
+			{
+				printf("Them xe that bai! Vui long thu lai");
+				Delay(2);
+			}
+			else
+			{
+				ImageCapturing(id);
+				printf("Them xe thanh cong !");
+				Delay(3);
+			}
+			break;
+		}
+		case 3: {
+			system("cls");
+			char id[10];
+			printf("Nhap ma xe can xoa : ");
+			getchar();
+			gets_s(id);
+			int rmflag = ImageRemoving(id);
+			if (rmflag == 0) {
+				printf("Xoa thanh cong");
+				Delay(2);
+			}
+			else {
+				printf("Xoa khong thanh cong");
+				Delay(2);
+			}
 			break;
 		}
 		default:

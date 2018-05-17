@@ -60,11 +60,13 @@ void ImageCapturing(const char* id) {
 }
 int ImageRemoving(char* imageid)
 {	
-	char* filename = (char*)malloc(strlen(imageid) + strlen(".jpg")); 
+	char* filename = (char*)malloc(strlen(imageid) + strlen(".jpg")+ strlen("C:\\TrafficImages\\")); 
 	// allocation new file name to concentrate imageid + .jpg
-	// copy imageid to filename
-	strcpy(filename, imageid);
-	// cat extension to filename
+	//copy path to filename
+	strcpy(filename, "C:\\TrafficImages\\");
+	// concenerate imageid to filename
+	strcat(filename, imageid);
+	// concenerate extension to filename
 	strcat(filename, ".jpg");
 	int rmstatus;
 	rmstatus = remove(filename);
@@ -86,7 +88,7 @@ void ImageShowing(const char* id)
 	Mat i = imread(path, 1);
 	if (i.empty())
 	{
-		printf("Image not found!");
+		printf("Khong tim thay hinh anh!");
 		return;
 	}
 	namedWindow("Image", CV_WINDOW_AUTOSIZE);
